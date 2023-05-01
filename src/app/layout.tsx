@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 import Link from 'next/link';
 // eslint-disable-next-line camelcase
 import { Press_Start_2P, Source_Sans_Pro } from 'next/font/google';
@@ -58,6 +59,8 @@ export default function RootLayout({
         <footer className="container p-5 mx-auto">
           &copy; Dan Scanlon {new Date().getFullYear()}
         </footer>
+
+        <Analytics />
       </body>
     </html>
   );
