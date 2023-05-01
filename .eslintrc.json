@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "@genesis-xyz"],
+  "rules": {
+    // React doesn't need to be in scope in idiomatic Next.js
+    "react/react-in-jsx-scope": 0
+  }
 }
