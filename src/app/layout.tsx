@@ -43,7 +43,7 @@ export default function RootLayout({
             <Link href="/posts/about">about</Link>
             <Link href="https://twitter.com/danscan">twitter</Link>
             <Link href="https://meet.dscanlon.com">meet</Link>
-            <Link href="mailto:dan@danscan.com">email</Link>
+            <Link href="mailto:dan@dscanlon.com">email</Link>
 
             <div className="flex-1" />
 
