@@ -1,0 +1,57 @@
+# Willpowerless Publishing
+
+**You begin each day with a limited reserve of willpower. You burn some each time you fight distractions from long-term goals.**
+    
+Like me, you might wake up itching to explore and experiment, getting your hands dirty and seeing where it leads.
+
+Most of the time, that means writing code. Sometimes you're using tools you're an expert in, and other times you've never touched them before.
+
+You don't quit until you've scratched the itch and learned *something* interesting.
+
+Sometimes you'll have something to show for it; other times, you realize your idea was broken to begin with.
+
+What you've learned could benefit someone – perhaps not today, but maybe tomorrow or later this week.
+
+Yet, you never actually share. When you try to publish your thoughts, you get stuck in an endless loop of revisions, draining your willpower before you can hit "send."
+
+* * *
+
+> Motivation is a mirage. Don't gaslight yourself. Develop discipline or cancel your plans. Never depend on systems that demand willpower.
+>
+> [*Are You Serious?*](https://taylor.town/are-you-serious)
+
+I've come up with a strategy that removes willpower from the equation, which includes:
+
+- Daily practice
+- A familiar workflow
+- External editing support
+- Automation
+
+### Daily Practice
+Forget the ceremony; share something every day. By utilizing a familiar workflow and collaborating with ChatGPT, daily posts become achievable.
+
+### Familiar Workflow
+To make daily posts achievable, the publishing process must be as effortless as possible. I've been maintaining daily work-log entries since late 2022, so I'm very comfortable writing Markdown in a text editor.
+
+### External Editing Support
+To avoid the frustration of self-editing, I rely on ChatGPT as my editor, making the process more efficient and enjoyable.
+
+```bash
+cat willpowerless-publishing.mdx | chatblade -p edit > willpowerless-publishing-edit1.mdx
+```
+
+### Automation
+Originality is a must in your first draft and edits. What you share should be *your work*, and you should be imposing in how you constrain ChatGPT while editing.
+
+For the rest, automate it.
+
+This site uses Next.js + Markdown, and it's hosted on Vercel. Deploying is a matter of committing and running `git push`.
+
+I've even removed the work from writing commit messages. [OpenCommit](https://github.com/di-sukharev/opencommit) writes them for me.
+
+```bash
+oc
+git push
+```
+
+We'll see how this goes 🤞 See you tomorrow!
