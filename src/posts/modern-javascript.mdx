@@ -1,0 +1,32 @@
+#### Why this guide exists
+<div class="text-sm">
+  I'm in the midst of speedrunning getting familiar with Python, which I last used 10 years ago, and I realize I have no clue about what's considered modern/idiomatic.
+
+  In addition to re-familiarizing myself with the language's features, I also need to know the options for how to:
+  - Fetch data from an API
+  - Validate and transform data
+  - Handle errors
+  - Write tests
+  - Interact with a database like SQLite or DuckDB
+  - Interact with the filesystem
+  - Use things that are uniquely first-class in Python libraries, like DataFrames
+
+  The process is making me appreciate the intuition I've built up around the Javascript language and ecosystem. I'll offer the latest snapshot as a guide here.
+</div>
+
+## Modern Javascript
+
+- Use TypeScript
+- If you can, use [Bun](https://bun.sh). It's faster than Node, has a much better DX, great built-in APIs including tests, and it doesn't impose any config overhead to using TypeScript
+  - You may not be able to use Bun, for example if you're using Next.js, React Native, or some other incompatible framework or library
+  - If you can't use Bun, use the latest version of Node
+- For websites, apps, and APIs, use [Next.js 13.4 with the App router](https://nextjs.org/docs)
+- Fetch data and make other HTTP requests using the `fetch` API. Don't install a dependency for HTTP fetching
+- Validate your data at serialization/deserialization boundaries with [Zod](https://zod.dev/)
+- If you don't need replication, use [SQLite](https://sqlite.org/)
+  - Don't use SQLite if you _do_ need replication
+- If you need replication, use MySQL or Postgres.
+  - [PlanetScale](https://planetscale.com/) has a great MySQL offering
+  - [Neon](https://neon.tech/) or [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres) are great offerings if your database isn't hundreds of GB or more
+- Don't use an ORM. Set up your project to work well with SQL, and define your schemas in SQL DDL
+  - Treat SQL with respect. It belongs in your codebase
