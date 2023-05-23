@@ -1,6 +1,4 @@
 /* eslint-disable react/no-unknown-property */
-import { readFileSync } from 'fs';
-import LocalFont from 'next/font/local';
 import { ImageResponse } from 'next/server';
 
 // Route segment config
@@ -15,7 +13,7 @@ export const size = {
 export const contentType = 'image/png';
 
 const fetchFont = fetch(
-  new URL('../../public/fonts/ArgentPixelCF-Italic.otf', import.meta.url).href
+  new URL('/public/fonts/ArgentPixelCF-Italic.otf', import.meta.url).href
 ).then((res) => res.arrayBuffer());
 
 // Image generation
