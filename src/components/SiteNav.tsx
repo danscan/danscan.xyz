@@ -4,7 +4,7 @@ import { Mikey } from './Mikey';
 
 export function SiteNav() {
   return (
-    <nav className="flex items-center text-sm font-heading gap-x-2 sm:gap-x-3 md:text-lg md:gap-x-5">
+    <nav className="flex items-center text-sm font-heading md:text-lg gap-x-5">
       {/* Logo */}
       <Link href="/" title="danscan">
         <Logo />
