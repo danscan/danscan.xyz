@@ -30,8 +30,8 @@ export default async function Home() {
 
           <p>
             At <a href="https://genesis.xyz">Genesis</a>, my work is focused on
-            forcing the outcome where the software that we use affords us
-            control over our data. And that's only the tip of the iceberg...
+            forcing the outcome where the software we use affords us control
+            over our data. And that's only the tip of the iceberg...
           </p>
 
           {/* Undermine the bad incentives, create new infrastructure, easier to host, decentralized */}
