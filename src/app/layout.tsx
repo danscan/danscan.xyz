@@ -1,20 +1,16 @@
 import './globals.css';
-import { Analytics } from '@vercel/analytics/react';
-import Link from 'next/link';
 // eslint-disable-next-line camelcase
-import { Press_Start_2P, Source_Sans_Pro } from 'next/font/google';
-import { Logo } from '@/components/Logo';
-import { Mikey } from '@/components/Mikey';
+import { SiteNav } from '@/components/SiteNav';
+import { Analytics } from '@vercel/analytics/react';
+import LocalFont from 'next/font/local';
 
-const pressStart2P = Press_Start_2P({
-  variable: '--font-heading',
-  subsets: ['latin'],
-  weight: '400',
-});
-const sourceSansPro = Source_Sans_Pro({
+const FontBody = LocalFont({
+  src: '../fonts/ArgentPixelCF-Regular.woff2',
   variable: '--font-body',
-  subsets: ['latin'],
-  weight: ['400', '600'],
+});
+const FontHeading = LocalFont({
+  src: '../fonts/ArgentPixelCF-Italic.woff2',
+  variable: '--font-heading',
 });
 
 export const metadata = {
@@ -29,37 +25,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html className="h-screen overflow-y-scroll" lang="en">
       <body
-        className={`${pressStart2P.variable} ${sourceSansPro.variable} font-body dark:bg-black bg-white text-black dark:text-white`}
+        className={`${FontHeading.variable} ${FontBody.variable} flex flex-col font-body dark:bg-black bg-white text-black dark:text-white selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black min-h-full`}
       >
-        {/* Nav */}
-        <div className="container px-5 mx-auto">
-          {/* Menu */}
-          <nav className="flex items-center text-sm font-semibold gap-x-2 sm:gap-x-3 md:text-lg md:gap-x-5">
-            {/* Logo */}
-            <Link href="/" title="danscan">
-              <Logo />
-            </Link>
-            <Link href="/posts/about">about</Link>
-            <Link href="https://twitter.com/danscan">twitter</Link>
-            <Link href="https://meet.dscanlon.com">meet</Link>
-            <Link href="mailto:dan@dscanlon.com">email</Link>
-
-            <div className="flex-1" />
-
-            <Link className="-rotate-12" href="https://genesis.xyz">
-              <Mikey />
-            </Link>
-          </nav>
+        {/* Main container */}
+        <div className="flex flex-col justify-between flex-1 min-h-full">
+          {/* Main Content */}
+          <div className="h-full">{children}</div>
+          {/* Footer */}
+          <footer className="container">
+            <SiteNav />
+          </footer>
         </div>
 
-        {children}
-
-        <footer className="container p-5 mx-auto">
-          &copy; Dan Scanlon {new Date().getFullYear()}
-        </footer>
-
+        {/* Vercel Analytics */}
         <Analytics />
       </body>
     </html>
