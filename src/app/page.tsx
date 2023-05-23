@@ -40,15 +40,15 @@ export default async function Home() {
 
       {/* Writing */}
       <div className="flex flex-row">
-        {/* Seasons */}
+        {/* Logs */}
         <div className="flex-1 space-y-1">
           <div className="text-xl font-heading">Logs</div>
-
-          {/* Post */}
+          {/* List */}
           <div className="border-black divide-y divide-black border-y dark:border-white border-opacity-10 divide-opacity-10 dark:divide-opacity-30 dark:border-opacity-30 dark:divide-white">
             <PostsIndex />
           </div>
         </div>
+
         <div className="flex-1" />
       </div>
     </main>
