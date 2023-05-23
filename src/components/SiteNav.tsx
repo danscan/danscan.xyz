@@ -9,9 +9,13 @@ export function SiteNav() {
       <Link href="/" title="danscan">
         <Logo />
       </Link>
-      <Link href="https://twitter.com/danscan">twitter</Link>
-      <Link href="https://meet.dscanlon.com">meet</Link>
-      <Link href="mailto:dan@dscanlon.com">email</Link>
+
+      {/* Menu */}
+      <div className="flex gap-x-4">
+        <Link href="https://twitter.com/danscan">twitter</Link>
+        <Link href="https://meet.dscanlon.com">meet</Link>
+        <Link href="mailto:dan@dscanlon.com">email</Link>
+      </div>
 
       <div className="flex-1" />
 
