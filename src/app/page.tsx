@@ -39,7 +39,7 @@ export default async function Home() {
       </div>
 
       {/* Writing */}
-      <div className="flex flex-row">
+      <div className="flex flex-col md:flex-row">
         {/* Logs */}
         <div className="flex-1 space-y-1">
           <div className="text-xl font-heading">Logs</div>
