@@ -1,4 +1,5 @@
 import { PostsIndex } from '@/posts';
+import Link from 'next/link';
 
 export default async function Home() {
   return (
@@ -6,7 +7,7 @@ export default async function Home() {
       {/* Logo */}
       <div className="space-y-1">
         <div className="text-3xl font-heading">danscan</div>
-        <div className="text-sm italic">Computing Enthusiast</div>
+        <div className="text-sm italic">Nice-Things Enthusiast</div>
       </div>
 
       {/* Brief About */}
@@ -14,27 +15,23 @@ export default async function Home() {
         <div className="text-xl font-heading">About</div>
         <div className="space-y-5 text-base">
           <p>
-            I believe computing can serve humanity much better than it does
-            today.
+            I write about creation, systems and incentives (or "why we can't
+            have{' '}
+            <Link className="underline" href="/posts/nice-things-we-cant-have">
+              nice things
+            </Link>
+            "), and personal development through the lens of experiences I've
+            had building software and companies over the past 16 years.
           </p>
 
           <p>
-            The apps we use possess and control <i>our</i> data and use it
-            against us. The vast majority of mature, well-maintained and usable
-            software is arbitrarily locked down so you can't combine it with
-            other software. Most people are computing-illiterate because they
-            haven't had an opportunity to see inside the tools they use every
-            day, so they've been discouraged from creating new things or hacking
-            existing ones.
+            I'm also the co-founder and CTO of{' '}
+            <a className="underline" href="https://genesis.xyz">
+              Genesis
+            </a>
+            , where my work is focused on forcing the outcome where the software
+            we use gives us control over our data.
           </p>
-
-          <p>
-            At <a href="https://genesis.xyz">Genesis</a>, my work is focused on
-            forcing the outcome where the software we use affords us control
-            over our data. And that's only the tip of the iceberg...
-          </p>
-
-          {/* Undermine the bad incentives, create new infrastructure, easier to host, decentralized */}
         </div>
       </div>
 

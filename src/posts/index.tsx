@@ -4,6 +4,16 @@ export function PostsIndex() {
   return (
     <>
       <PostListing
+        date="2023.06.15"
+        href="/posts/nice-things-we-cant-have"
+        title="Nice Things We Can't Have"
+      />
+      <PostListing
+        date="2023.05.29"
+        href="/posts/negotiating-with-reality"
+        title="Negotiating with Reality"
+      />
+      <PostListing
         date="2023.05.23"
         href="/posts/publishing-whats-working"
         title="Publishing: What's Working"
@@ -33,7 +43,6 @@ export function PostsIndex() {
         href="/posts/use-unfamiliar-tools"
         title="Use Unfamiliar Tools"
       />
-      <PostListing date="2023.05.05" href="/posts/shipped" title="Shipped" />
       <PostListing
         date="2023.05.04"
         href="/posts/not-today"
