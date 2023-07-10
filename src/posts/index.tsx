@@ -4,6 +4,16 @@ export function PostsIndex() {
   return (
     <>
       <PostListing
+        date="2023.07.10"
+        href="/posts/the-unofficial-web"
+        title="The Unofficial Web"
+      />
+      <PostListing
+        date="2023.07.10"
+        href="/posts/platform-capitalism"
+        title="Platform Capitalism Destroys Nice Things"
+      />
+      <PostListing
         date="2023.07.09"
         href="/posts/composable-remote-software"
         title="Composable Remote Software"
