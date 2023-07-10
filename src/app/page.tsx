@@ -7,7 +7,7 @@ export default async function Home() {
       {/* Logo */}
       <div className="space-y-1">
         <div className="text-3xl font-heading">danscan</div>
-        <div className="text-sm italic">Nice-Things Enthusiast</div>
+        <div className="text-sm italic">Computing Enthusiast</div>
       </div>
 
       {/* Brief About */}

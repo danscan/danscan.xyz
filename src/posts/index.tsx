@@ -4,6 +4,11 @@ export function PostsIndex() {
   return (
     <>
       <PostListing
+        date="2023.07.09"
+        href="/posts/composable-remote-software"
+        title="Composable Remote Software"
+      />
+      <PostListing
         date="2023.06.15"
         href="/posts/nice-things-we-cant-have"
         title="Nice Things We Can't Have"
