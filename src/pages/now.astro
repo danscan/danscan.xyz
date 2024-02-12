@@ -1,0 +1,43 @@
+---
+import FormattedDate from '../components/FormattedDate.astro';
+import Page from '../layouts/Page.astro';
+
+// !!! UPDATE THIS DATE WHEN YOU UPDATE THE PAGE !!!
+const updatedAt = new Date('2024-02-12');
+---
+
+<Page
+	title="What I'm doing now"
+	description="I'm currently the CTO of Genesis and the author and principal architect of Passes."
+>
+	<main class="space-y-5 py-10">
+		<main class="space-y-1">
+			<h1 class="text-2xl">
+				What I'm doing now
+			</h1>
+			<div class="text-sm text-gray-500">
+				Last updated <FormattedDate date={updatedAt} />
+			</div>
+		</main>
+		
+		<h2 class="text-lg">
+			Currently
+		</h2>
+	
+		<ul class="list-disc list-inside">
+			<li>Co-founder and CTO of Genesis</li>
+			<li>Author of Passes</li>
+		</ul>
+
+		<hr />
+
+		<h2 class="text-lg">
+			Previously
+		</h2>
+	
+		<ul class="list-disc list-inside">
+			<li>2017-2021 • Head of Engineering at Futurism.com</li>
+			<li>2013-2015 • Co-founder and CEO of Present, an early / now defunct, social livestreaming app</li>
+		</ul>
+	</main>
+</Page>
