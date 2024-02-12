@@ -1,11 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import Page from '../layouts/Page.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getBlogCollectionSorted } from '../content/blog';
+import Page from '../layouts/Page.astro';
 
-const posts = await getCollection('blog');
-const [latestPost, ...morePosts] = posts;
+const [latestPost, ...morePosts] = await getBlogCollectionSorted();
 ---
 
 <Page title={SITE_TITLE} description={SITE_DESCRIPTION}>

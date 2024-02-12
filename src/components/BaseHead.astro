@@ -20,7 +20,10 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
+<!-- RSS Link -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+<!-- Font Preloads -->
 <link rel="preload" href="/fonts/firacode-regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/ibmplexsans-bold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/ibmplexsans-italic.woff2" as="font" type="font/woff2" crossorigin />
