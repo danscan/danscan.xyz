@@ -6,7 +6,7 @@ image: /blog/what-is-passes.png
 ---
 
 
-Passes is a client-side browser API I authored that allow apps to make requests directly to users. It's designed to enable:
+Passes is a client-side browser API I authored that allows apps to make requests directly to users. It's designed to enable:
 - The fastest authentication experience on the web.
 - Portable user accounts that can be reused across apps, provided by the user's choice of app (their "Pass Provider").
 - Emergent cross-app integrations among apps supporting common [request topics](#request-topics).
