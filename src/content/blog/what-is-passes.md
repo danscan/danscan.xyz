@@ -1,5 +1,5 @@
 ---
-published: 2024-02-12
+published: 2024-02-13
 title: What Is Passes?
 description: An introduction to the Passes protocol I authored.
 image: /blog/what-is-passes.png
