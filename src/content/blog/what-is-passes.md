@@ -6,9 +6,9 @@ image: /blog/what-is-passes.png
 ---
 
 
-Passes is a client-side browser API I authored, allowing apps to make requests directly to users. It's designed to enable:
+Passes is a client-side browser API I authored that allow apps to make requests directly to users. It's designed to enable:
 - The fastest authentication experience on the web.
-- A portable user account that can be reused across apps, provided by the user's choice of app (their "Pass Provider").
+- Portable user accounts that can be reused across apps, provided by the user's choice of app (their "Pass Provider").
 - Emergent cross-app integrations among apps supporting common [request topics](#request-topics).
 - The fastest and most ergonomic developer experience for authentication and cross-app requests.
 - End-user choice and control at every step.
@@ -60,7 +60,7 @@ The Pass Provider tab is closed automatically after the result is received by th
 
 All transmission of requests and results is client-side, and since Passes.org has redirected to the user's Pass Provider, it cannot see requests or results.
 
-That's it. Feel free to check out the code for yourself: [view source](https://unpkg.com/@passes/polyfill@0.1.5/src/main.js)
+Feel free to check out the polyfill code for yourself: [view source](https://unpkg.com/@passes/polyfill@0.1.5/src/main.js)
 
 ## Request Topics
 
@@ -93,12 +93,38 @@ const greetUser = new RequestTopic<
   requestBodyCodec: Codecs.String,
   // Codec for the JSON object result body
   resultBodyCodec: Codecs.Json,
-})
+});
+
+// Send a request using the greetUser topic
+const result = await greetUser.sendRequest('Dan');
+
+// Handle the result
+switch (result.status) {
+  case 'accepted':
+    // The user accepted the greet-user request.
+    // remember, result.body is of type { greeting: string }
+    console.log(result.body.greeting); // "Hello, Dan!"
+    break;
+
+  case 'rejected':
+    // The user rejected the greet-user request
+    break;
+
+  case 'exception':
+    // An exception occurred while the Pass Provider was handling the greet-user request
+    console.error(result.message);
+    break;
+
+  case 'unsupported':
+    // The user's Pass Provider does not support the xyz.danscan.greet-user topic
+    // (read on below for more on this)
+    break;
+}
 ```
 
 `greetUser` specifies an identifier and a body type and codec for both the request and result.
 
-Notably absent here are presentation and handling. Let's move on to that in the next section.
+Notably absent here are presentation and handling. I'll cover those in the next section.
 
 ## Request Handling
 
@@ -112,11 +138,7 @@ document.passes.request ---[request]--> Pass Provider
 
 A Pass Provider presents requests to the user for review and handling.
 
-Generally, Pass Providers support commonly-used request topics, such as requests related to signing in or making payments.
-
-But Pass Providers cannot be expected to support _every_ request topic a user might encounter, especially when it comes to specialized use cases like access to specific data types, AI, and more.
-
-Any app can request to become the user's Pass Provider:
+Any app can request to become the user's Pass Provider by sending an `org.passes.provide-pass` request:
 
 ```typescript
 import { providePass } from '@passes/reqs/topics/pass-providers';
@@ -126,19 +148,23 @@ const providePassResult = await providePass({
   // The URI of the page that presents requests to the user for review and handling
   uri: 'https://mypass.com/request',
   // A string used to identify the user to their Pass Provider (e.g. a JWT)
-  // This is not used in the Passes Polyfill implementation, but may be used by other implementations like browser extensions
+  // This is not used in the Passes Polyfill script, but may be used by other implementations like browser extensions
   principal: 'random_3815710010219142556243038',
 });
 ```
 
 If the user accepts this request, future requests will be opened at `https://mypass.com/request`.
 
+Generally, Pass Providers will support commonly-used request topics, such as requests related to signing in or making payments.
 
-### Topic Providers
+But Pass Providers cannot be expected to support _every_ request topic a user might encounter, especially when it comes to specialized use cases like access to specific data types, AI, and more.
 
 This is where Topic Providers come in.
 
-A Topic Provider is any app that supports presentation and handling of a set of request topics.
+
+### Topic Providers
+
+A Topic Provider is any app that supports presentation and handling of a _specific set_ of request topics.
 
 When the user uses an app that provides topics, it can send an `org.passes.provide-topics` request, which tells the user's Pass Provider the set of topics it supports, and allows the user to delegate future requests of its supported topics to it.
 
@@ -156,7 +182,7 @@ const provideTopicsResult = await provideTopics({
 });
 ```
 
-In this case, if the user accepts this request, future requests to the topic `com.myapp.topic1` will be redirected to `https://myapp.com/request` by the user's Pass Provider.
+In this case, if the user accepts this request, future requests to the topic `com.myapp.topic1` may be redirected to `https://myapp.com/request` by the user's Pass Provider.
 
 
 ### Requests with default providers
@@ -179,9 +205,11 @@ const myNicheRequestTopicResult = await sendRequestWithDefaultProvider({
 });
 ```
 
-If the user's Pass Provider supports this niche request topic, it will just handle it. Or, if the user already has a topic provider for the niche request topic, their Pass Provider will delegate the request to the topic provider.
+If the user's Pass Provider supports this niche request topic, it will just handle it.
 
-Otherwise, the request will be opened at `https://mynicheapp.com/request`.
+If the user already has a topic provider for the niche request topic, their Pass Provider will delegate the request to the topic provider.
+
+Otherwise, the request will be opened at its default provider `https://mynicheapp.com/request`.
 
 
 ### A note on topic providers
@@ -195,9 +223,9 @@ This means topic providers can compose the capabilities of other apps.
 
 ## On speed
 
-Sending requests and results on the client side allows Passes to offer disturbingly fast UX flows, whether for signing in, permissions requests, payments, or anything else.
+Sending requests and results on the client side allows Passes to offer ludicrously fast UX flows, whether for signing in, permissions requests, payments, or anything else.
 
-Coupled with applications deployed at the edge, Passes is an opportunity to raise the bar for speed on many of the most common user actions on the web.
+Coupled with applications deployed at the edge, Passes presents an opportunity to raise the bar for speed on many of the most common user actions on the web.
 
 
 ## On portable accounts
@@ -206,7 +234,7 @@ Part of the reason for the name "Passes" is that a Pass Provider provides a kind
 
 Users are free to use the Pass Provider of their choice, and apps that send requests with Passes are completely agnostic as to which provider the user uses. As long as it supports the requested topic, it will work.
 
-These two facts combine into a very compelling property: Passes offers an almost web-native portable identity that's not tied to a specific corporate provider. This is a major advantage over server-side authentication schemes like OAuth.
+These two facts combine into a very compelling property: Passes offers a kind of web-native portable identity that's not tied to a specific corporate provider. This is a major differentiator from server-side authentication schemes like OAuth.
 
 
 ## On emergent cross-app integrations
@@ -220,16 +248,18 @@ As a result, Passes makes it possible to integrate various apps without referenc
 
 ## On developer experience
 
-Passes simplifies many things. For Passes-based authentication, you don't need separate integrations for many providers. Just request the topic you want to use for authentication, and it will automatically work with all supporting providers. 
+Passes simplifies things. For Passes-based authentication, you don't need separate integrations for many providers. Just request the topic you want to use for authentication, and it will automatically work with all supporting providers. 
 
 Many benefits come from the fact the request API is client-side. There are no HTTP APIs, API Keys, and no party can refuse you service except your user. Integration couldn't be simpler.
 
 I suggest trying out the [Genesis AI](https://github.com/genesis-xyz/ai) package (which allows apps to request to access the OpenAI API on behalf of the user, built on Passes) to get a feel for the DX.
 
+You can try out the end-user experience in [this demo](https://chat.genesis.xyz) (heads-up: you will need to have an OpenAI API key handy).
+
 
 ## On end-user choice and control
 
-With Passes, every request is presented to the user for review. The user is free to reject any request they don't want to approve, they use their choice of Pass Provider, decide which apps they want to use as Topic Providers, and decide whether they want to use a browser extension or not.
+With Passes, every request is presented to the user for review. The user is free to reject any request they don't want to approve. They use their choice of Pass Provider, decide which apps they want to use as Topic Providers, and decide whether they want to use a browser extension or not.
 
 Choices are only presented to the user when relevant to what they are actively trying to do, and they're never faced with upfront decisions they need to make out-of-context.
 
@@ -243,7 +273,7 @@ For in-depth documentation on Passes, visit [docs.passes.org](https://docs.passe
 
 ### Upcoming high-level SDK
 
-Passes is a simple and powerful API, and it's not at all prescriptive of what you can and cannot build with it.
+The Passes API is simple, powerful, and not at all prescriptive of what you can and cannot build with it.
 
 This is intentional, but it can make it hard to wrap your head around it and what you can do with it.
 
