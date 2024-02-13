@@ -10,8 +10,6 @@ const { title, description, image, published, updated } = Astro.props;
 
 <Page title={title} description={description}>
 	<article class="py-10 space-y-5">
-		{image && <img class="w-full h-auto" src={image} alt="" />}
-
 		<div class="space-y-1">
 			<div class="flex items-baseline gap-3 text-sm text-gray-500">
 				<div><FormattedDate date={published} /></div>

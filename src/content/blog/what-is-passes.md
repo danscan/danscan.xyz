@@ -1,7 +1,8 @@
 ---
 published: 2024-02-12
-title: What is Passes?
+title: What Is Passes?
 description: An introduction to the Passes protocol I authored.
+image: /blog/what-is-passes.png
 ---
 
 
@@ -47,7 +48,7 @@ At its core, Passes is this simple API `document.passes.request`, provided by:
 2. **A browser extension installed by the user.** Though offering UX benefits, Passes functions fully without it.
 3. **Or a script that has run on the requesting web page.** To enable immediate functionality in any web browser, [Passes.org](https://docs.passes.org) offers a polyfill script.
 
-### What the Polyfill Script Does
+### What The Polyfill Script Does
 
 The [Passes Polyfill](https://docs.passes.org/packages/polyfill/quickstart.html) defines the `document.passes.request` API function.
 
