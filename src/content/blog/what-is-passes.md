@@ -60,7 +60,7 @@ The Pass Provider tab is closed automatically after the result is received by th
 
 All transmission of requests and results is client-side, and since Passes.org has redirected to the user's Pass Provider, it cannot see requests or results.
 
-That's it. Feel free to check out the code for yourself: https://unpkg.com/@passes/polyfill@0.1.5/src/main.js
+That's it. Feel free to check out the code for yourself: [view source](https://unpkg.com/@passes/polyfill@0.1.5/src/main.js)
 
 ## Request Topics
 
