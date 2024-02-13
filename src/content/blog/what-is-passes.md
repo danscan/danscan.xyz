@@ -10,7 +10,7 @@ Passes is a client-side browser API I authored that allows apps to make requests
 - The fastest authentication experience on the web.
 - Portable user accounts that can be reused across apps, provided by the user's choice of app (their "Pass Provider").
 - Emergent cross-app integrations among apps supporting common [request topics](#request-topics).
-- The fastest and most ergonomic developer experience for authentication and cross-app requests.
+- The most ergonomic developer experience for authentication and cross-app requests.
 - End-user choice and control at every step.
 
 Passes works in any browser without requiring an extension.
