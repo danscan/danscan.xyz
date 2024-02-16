@@ -44,7 +44,7 @@ For making requests with Passes in your app, you'll use a higher-level API calle
 
 At its core, Passes is this simple API `document.passes.request`, provided by:
 
-1. **The user's browser itself.** This is unlikely to happen soon.
+1. **The user's browser itself.** Albeit unlikely to happen soon, it's possible to build a browser that natively provides the Passes API.
 2. **A browser extension installed by the user.** Though offering UX benefits, Passes functions fully without it.
 3. **Or a script that has run on the requesting web page.** To enable immediate functionality in any web browser, [Passes.org](https://docs.passes.org) offers a polyfill script.
 
