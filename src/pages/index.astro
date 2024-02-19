@@ -22,7 +22,7 @@ const [latestPost, ...morePosts] = await getBlogCollectionSorted();
 					<FormattedDate date={latestPost.data.published} />
 				</p>
 				<p class="opacity-50">
-					{latestPost.body.slice(0, 140)}... <span>Read more &rarr;</span>
+					{latestPost.data.description.slice(0, 140)}... <span>Read more &rarr;</span>
 				</p>
 			</a>
 		</div>
