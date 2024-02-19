@@ -4,6 +4,11 @@
       "language": "markdown",
       "scheme": "file",
       "pattern": "src/content/blog/what-is-passes.md"
+    },
+    {
+      "language": "markdown",
+      "scheme": "file",
+      "pattern": "src/content/blog/send-my-ai.md"
     }
   ]
 }
