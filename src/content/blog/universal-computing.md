@@ -23,7 +23,7 @@ This is a shame, because many hard and important problems that face society are 
 <div class="text-xs py-3 space-y-2">
   <p>More negative than the rest of this post, but worth mentioning:</p>
   <p class="opacity-50">
-  A non-trivial amount of the suffering of being a member of society comes from being outnumbered by peers who navigate their world with incoherent models of reality in their head from a lifetime of trying to use their stock intuition facilities on problems they are unequipped to understand. Perhaps you yourself are one of them.
+  A non-trivial amount of the suffering of being a member of society comes from being outnumbered by peers who navigate their world with incoherent models of reality in their head from a lifetime of trying to use their stock intuition facilities on problems they are unequipped to understand. Or perhaps you are one of them.
   </p>
 </div>
 
@@ -46,4 +46,4 @@ Might we be able to create a better life for ourselves and our peers if we can g
 
 I'm working on creating the tools of Universal Computing. More about that will be written in a post to follow this one.
 
-If you are interested in working with me, write me at dan (at) dscanlon.com.
+If you are interested in participating, write me at dan (at) dscanlon.com or follow me on X [@danscan](https://x.com/danscan).
