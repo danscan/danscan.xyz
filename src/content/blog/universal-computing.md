@@ -21,7 +21,7 @@ Each time you explicitly describe a system, simulate it, and see the effect of w
 This is a shame, because many hard and important problems that face society are _systems problems_ across categories like society itself (e.g. economics), nature (climate change), theory (reasoning about the origins of life), and technology (medicine, information and communication systems, etc).
 
 <div class="text-xs py-3 space-y-2">
-  <p>Negative, but needs mentioning:</p>
+  <p>More negative than the rest of this post, but worth mentioning:</p>
   <p class="opacity-50">
   A non-trivial amount of the suffering of being a member of society comes from being outnumbered by peers who navigate their world with incoherent models of reality in their head from a lifetime of trying to use their stock intuition facilities on problems they are unequipped to understand. Perhaps you yourself are one of them.
   </p>
